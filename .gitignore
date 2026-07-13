@@ -1,0 +1,6 @@
+/vendor/
+/assets/uploads/
+/assets/certificats/
+Thumbs.db
+desktop.ini
+.vscode/
