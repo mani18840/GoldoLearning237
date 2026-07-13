@@ -1,0 +1,109 @@
+/* ===== PROMOTEUR.CSS - Spécifique au dashboard promoteur ===== */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    color: #1a1a2e;
+}
+
+.section-header input[type="text"] {
+    padding: 10px 14px;
+    border: 1px solid #e0e0e6;
+    border-radius: 8px;
+    font-size: 14px;
+    min-width: 240px;
+}
+
+.table-wrap {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 14px 16px;
+    background: #faf9fc;
+    color: #666;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f2f2f5;
+    color: #333;
+    vertical-align: middle;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background: #faf9ff;
+}
+
+.data-table .empty-row td {
+    text-align: center;
+    color: #999;
+    padding: 30px;
+}
+
+/* Badges de statut */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.badge-active { background: #e6f9ee; color: #1a9e56; }
+.badge-inactive { background: #fdeeee; color: #d64545; }
+.badge-neutral { background: #f0f0f5; color: #555; }
+
+/* Actions dans les tableaux */
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    background: none;
+    border: 1px solid #e0e0e6;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #555;
+    transition: background .15s, color .15s;
+}
+.btn-icon:hover { background: #f5f3ff; color: #7c3aed; }
+.btn-icon.danger:hover { background: #fdeeee; color: #d64545; }
+
+/* Modal confirmation */
+.modal-sm { max-width: 380px; }
+
+@media (max-width: 700px) {
+    .data-table th, .data-table td { padding: 10px; }
+    .section-header input[type="text"] { min-width: 100%; }
+}

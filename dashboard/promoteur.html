@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espace Promoteur - GoldoLearning237</title>
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+<link rel="stylesheet" href="../assets/css/promoteur.css">
+</head>
+<body>
+
+<button class="burger" id="burgerBtn">☰</button>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">GoldoLearning<span>237</span></div>
+    <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-view="apercu">
+            <i data-icon="grid"></i> Aperçu
+        </a>
+        <a href="#" class="nav-item" data-view="cours">
+            <i data-icon="book"></i> Cours
+        </a>
+        <a href="#" class="nav-item" data-view="enseignants">
+            <i data-icon="user"></i> Enseignants
+        </a>
+        <a href="#" class="nav-item" data-view="etudiants">
+            <i data-icon="users"></i> Étudiants
+        </a>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-mini">
+            <span id="userNomSidebar">Promoteur</span>
+        </div>
+        <a href="#" id="logoutBtn" class="logout-link">Déconnexion</a>
+    </div>
+</aside>
+
+<main class="main-content" id="mainContent">
+
+    <header class="topbar">
+        <h1 id="viewTitle">Aperçu de la plateforme</h1>
+        <div class="topbar-user">
+            <span id="userNomTop">—</span>
+        </div>
+    </header>
+
+    <!-- VUE APERÇU -->
+    <section class="view active" id="view-apercu">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon icon-purple">📚</div>
+                <div class="stat-value" id="statTotalCours">0</div>
+                <div class="stat-label">Cours publiés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-blue">🧑‍🏫</div>
+                <div class="stat-value" id="statTotalEnseignants">0</div>
+                <div class="stat-label">Enseignants</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-green">🎓</div>
+                <div class="stat-value" id="statTotalEtudiants">0</div>
+                <div class="stat-label">Étudiants</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-orange">🏆</div>
+                <div class="stat-value" id="statTotalCertificats">0</div>
+                <div class="stat-label">Certificats délivrés</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Cours récemment publiés</h2>
+        </div>
+        <div class="table-wrap">
+            <table class="data-table" id="tableRecents">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Enseignant</th>
+                        <th>Date de publication</th>
+                        <th>Inscrits</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- VUE COURS -->
+    <section class="view" id="view-cours">
+        <div class="section-header">
+            <h2>Tous les cours</h2>
+            <input type="text" id="searchCours" placeholder="Rechercher un cours...">
+        </div>
+        <div class="table-wrap">
+            <table class="data-table" id="tableCours">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Enseignant</th>
+                        <th>Statut</th>
+                        <th>Inscrits</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- VUE ENSEIGNANTS -->
+    <section class="view" id="view-enseignants">
+        <div class="section-header">
+            <h2>Enseignants</h2>
+            <input type="text" id="searchEnseignants" placeholder="Rechercher un enseignant...">
+        </div>
+        <div class="table-wrap">
+            <table class="data-table" id="tableEnseignants">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Cours créés</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- VUE ETUDIANTS -->
+    <section class="view" id="view-etudiants">
+        <div class="section-header">
+            <h2>Étudiants</h2>
+            <input type="text" id="searchEtudiants" placeholder="Rechercher un étudiant...">
+        </div>
+        <div class="table-wrap">
+            <table class="data-table" id="tableEtudiants">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Matricule</th>
+                        <th>Email</th>
+                        <th>Cours inscrits</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<!-- MODAL CONFIRMATION -->
+<div class="modal-overlay" id="confirmModal">
+    <div class="modal modal-sm">
+        <div class="modal-header">
+            <h3 id="confirmTitre">Confirmer</h3>
+        </div>
+        <div class="modal-body">
+            <p id="confirmMessage"></p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" id="confirmAnnulerBtn">Annuler</button>
+            <button class="btn btn-primary" id="confirmValiderBtn">Confirmer</button>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/promoteur.js"></script>
+</body>
+</html>

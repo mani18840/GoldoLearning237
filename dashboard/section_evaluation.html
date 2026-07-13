@@ -1,0 +1,80 @@
+<!-- VUE 4 : ÉVALUATIONS -->
+    <section class="dash-view" id="view-evaluations">
+        <div class="view-inner">
+            <div class="view-heading">
+                <h1>Évaluations</h1>
+                <p>Gérez les évaluations associées à vos leçons.</p>
+            </div>
+
+            <div id="evaluationsListContainer">
+                <!-- rempli dynamiquement par JS -->
+                <div class="empty-state">
+                    <span>📝</span>
+                    <p>Chargement...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL CRÉATION / ÉDITION QCM -->
+    <div class="modal-overlay hidden" id="modalQcm">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3 id="qcmModalTitre">Créer un QCM</h3>
+                <button class="modal-close" id="closeModalQcm">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="qcmForm">
+                    <input type="hidden" id="qcmLeconId">
+                    <input type="hidden" id="qcmEvaluationId">
+
+                    <div class="form-group">
+                        <label for="qcmTitreInput">Titre du QCM *</label>
+                        <input type="text" id="qcmTitreInput" placeholder="Ex : Quiz - Introduction au web">
+                        <span class="field-error" id="qcmTitreError"></span>
+                    </div>
+
+                    <div id="qcmQuestionsContainer">
+                        <!-- questions générées dynamiquement -->
+                    </div>
+
+                    <button type="button" class="btn-secondary-sm" id="ajouterQuestionBtn">+ Ajouter une question</button>
+
+                    <p class="auth-message" id="qcmMessage"></p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" id="cancelQcm">Annuler</button>
+                <button type="button" class="btn-submit" id="saveQcmBtn">
+                    <span id="qcmSaveBtnText">Enregistrer</span>
+                    <span class="btn-loader hidden" id="qcmSaveBtnLoader"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template pour une question (utilisé par JS, ne pas afficher directement) -->
+    <template id="templateQuestion">
+        <div class="qcm-question-block" data-question-index="">
+            <div class="qcm-question-header">
+                <span class="qcm-question-num"></span>
+                <button type="button" class="btn-icon danger btn-suppr-question">Supprimer</button>
+            </div>
+            <div class="form-group">
+                <input type="text" class="qcm-enonce-input" placeholder="Énoncé de la question">
+            </div>
+            <div class="qcm-options-list">
+                <!-- options générées dynamiquement -->
+            </div>
+            <button type="button" class="btn-lien btn-ajouter-option">+ Ajouter une option</button>
+        </div>
+    </template>
+
+    <!-- Template pour une option (utilisé par JS) -->
+    <template id="templateOption">
+        <div class="qcm-option-row">
+            <input type="radio" class="qcm-option-correcte" name="">
+            <input type="text" class="qcm-option-texte" placeholder="Texte de l'option">
+            <button type="button" class="btn-icon danger btn-suppr-option">&times;</button>
+        </div>
+    </template>

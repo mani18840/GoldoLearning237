@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espace Étudiant - GoldoLearning237</title>
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+<link rel="stylesheet" href="../assets/css/etudiant.css">
+</head>
+<body>
+
+<button class="burger" id="burgerBtn">☰</button>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">GoldoLearning<span>237</span></div>
+    <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-view="catalogue">
+            <i data-icon="grid"></i> Catalogue
+        </a>
+        <a href="#" class="nav-item" data-view="mes-cours">
+            <i data-icon="book"></i> Mes cours
+        </a>
+        <a href="#" class="nav-item" data-view="progression">
+            <i data-icon="chart"></i> Progression
+        </a>
+        <a href="#" class="nav-item" data-view="certificats">
+            <i data-icon="award"></i> Certificats
+        </a>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-mini">
+            <span id="userNomSidebar">Étudiant</span>
+        </div>
+        <a href="#" id="logoutBtn" class="logout-link">Déconnexion</a>
+    </div>
+</aside>
+
+<main class="main-content" id="mainContent">
+
+    <header class="topbar">
+        <h1 id="viewTitle">Catalogue des cours</h1>
+        <div class="topbar-user">
+            <span id="userNomTop">—</span>
+        </div>
+    </header>
+
+    <!-- VUE CATALOGUE -->
+    <section class="view active" id="view-catalogue">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon icon-blue">📚</div>
+                <div class="stat-value" id="statCoursDispo">0</div>
+                <div class="stat-label">Cours disponibles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-purple">🎓</div>
+                <div class="stat-value" id="statCoursInscrits">0</div>
+                <div class="stat-label">Cours inscrits</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-green">✅</div>
+                <div class="stat-value" id="statCoursTermines">0</div>
+                <div class="stat-label">Cours terminés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-orange">🏆</div>
+                <div class="stat-value" id="statCertificats">0</div>
+                <div class="stat-label">Certificats obtenus</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Tous les cours</h2>
+            <input type="text" id="searchCatalogue" placeholder="Rechercher un cours...">
+        </div>
+        <div class="cards-grid" id="catalogueGrid">
+            <!-- injecté par JS -->
+        </div>
+    </section>
+
+    <!-- VUE MES COURS -->
+    <section class="view" id="view-mes-cours">
+        <div class="cards-grid" id="mesCoursGrid"></div>
+    </section>
+
+    <!-- VUE LECTEUR DE LEÇON -->
+    <section class="view" id="view-lecteur">
+        <button class="btn-back" id="backToMesCours">← Retour à mes cours</button>
+        <div class="lecteur-layout">
+            <aside class="lecteur-sidebar" id="lecteurLeconsList">
+                <!-- liste des leçons du cours -->
+            </aside>
+            <div class="lecteur-main">
+                <h2 id="lecteurTitreLecon">Sélectionnez une leçon</h2>
+                <div class="lecteur-content" id="lecteurContent">
+                    <p class="empty-state">Choisissez une leçon dans la liste à gauche.</p>
+                </div>
+                <div class="lecteur-actions">
+                    <button class="btn btn-primary" id="marquerTermineBtn">Marquer comme terminée</button>
+                    <button class="btn btn-secondary" id="ouvrirQcmBtn" style="display:none;">Passer le QCM</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VUE PROGRESSION -->
+    <section class="view" id="view-progression">
+        <div class="cards-grid" id="progressionGrid"></div>
+    </section>
+
+    <!-- VUE CERTIFICATS -->
+    <section class="view" id="view-certificats">
+        <div class="cards-grid" id="certificatsGrid"></div>
+    </section>
+
+</main>
+
+<!-- MODAL QCM -->
+<div class="modal-overlay" id="qcmModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 id="qcmTitre">Évaluation</h3>
+            <button class="modal-close" id="closeQcmModal">&times;</button>
+        </div>
+        <div class="modal-body" id="qcmBody">
+            <!-- questions injectées par JS -->
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="soumettreQcmBtn">Soumettre</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL RÉSULTAT QCM -->
+<div class="modal-overlay" id="resultatModal">
+    <div class="modal modal-sm">
+        <div class="modal-body result-body" id="resultatBody">
+            <!-- résultat injecté par JS -->
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="fermerResultatBtn">Fermer</button>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/etudiant.js"></script>
+</body>
+</html>

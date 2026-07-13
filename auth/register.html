@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription — GoldoLearning237</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+
+    <!-- NAVBAR MINIMALE -->
+    <nav class="auth-nav">
+        <a href="../index.html" class="nav-logo">
+            <span class="logo-g">G</span>oldo<span class="logo-accent">Learning</span><span class="logo-237">237</span>
+        </a>
+        <a href="login.html" class="nav-switch">
+            Déjà un compte ? <span>Se connecter</span>
+        </a>
+    </nav>
+
+    <main class="auth-layout">
+
+        <!-- FORMULAIRE -->
+        <div class="auth-form-side">
+            <div class="auth-box">
+
+                <div class="auth-header">
+                    <h1>Créer un compte 🚀</h1>
+                    <p>Rejoignez GoldoLearning237 et commencez à apprendre dès aujourd'hui.</p>
+                </div>
+
+                <div class="auth-message" id="authMessage"></div>
+
+                <form id="registerForm" novalidate>
+
+                    <!-- Nom complet -->
+                    <div class="form-group">
+                        <label for="nom">Nom complet</label>
+                        <input
+                            type="text"
+                            id="nom"
+                            name="nom"
+                            placeholder="Ex : MANI AWONO Igor"
+                            autocomplete="name"
+                            required
+                        >
+                        <span class="field-error" id="nomError"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Adresse email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="votre@email.com"
+                            autocomplete="email"
+                            required
+                        >
+                        <span class="field-error" id="emailError"></span>
+                    </div>
+
+                    <!-- Rôle -->
+                    <div class="form-group">
+                        <label for="role">Je suis...</label>
+                        <select id="role" name="role" required>
+                            <option value="">-- Choisissez votre rôle --</option>
+                            <option value="etudiant">👨‍🎓 Étudiant — Je veux suivre des cours</option>
+                            <option value="enseignant">👨‍🏫 Enseignant — Je veux créer des cours</option>
+                            <option value="promoteur">🏢 Promoteur — Je gère des modules</option>
+                        </select>
+                        <span class="field-error" id="roleError"></span>
+                    </div>
+
+                    <!-- Mot de passe -->
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <div class="input-password">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Minimum 6 caractères"
+                                autocomplete="new-password"
+                                required
+                            >
+                            <button type="button" class="toggle-pwd" title="Afficher/Masquer">👁️</button>
+                        </div>
+                        <!-- Indicateur de force -->
+                        <div class="pwd-strength">
+                            <div class="pwd-strength-bar">
+                                <div class="pwd-strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span class="pwd-strength-label" id="strengthLabel">Entrez un mot de passe</span>
+                        </div>
+                        <span class="field-error" id="passwordError"></span>
+                    </div>
+
+                    <!-- Confirmation mot de passe -->
+                    <div class="form-group">
+                        <label for="password2">Confirmer le mot de passe</label>
+                        <div class="input-password">
+                            <input
+                                type="password"
+                                id="password2"
+                                name="password2"
+                                placeholder="Répétez votre mot de passe"
+                                autocomplete="new-password"
+                                required
+                            >
+                            <button type="button" class="toggle-pwd" title="Afficher/Masquer">👁️</button>
+                        </div>
+                        <span class="field-error" id="password2Error"></span>
+                    </div>
+
+                    <!-- CGU -->
+                    <label class="terms-label">
+                        <input type="checkbox" id="terms">
+                        J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialité</a> de GoldoLearning237.
+                    </label>
+
+                    <button type="submit" class="btn-submit" id="submitBtn" data-label="Créer mon compte">
+                        <span id="btnText">Créer mon compte</span>
+                        <span id="btnLoader" class="btn-loader hidden">⏳</span>
+                    </button>
+
+                </form>
+
+                <div class="auth-divider"><span>ou</span></div>
+
+                <p class="auth-switch-link">
+                    Déjà inscrit ?
+                    <a href="login.html">Se connecter</a>
+                </p>
+
+            </div>
+        </div>
+
+        <!-- VISUEL DROIT -->
+        <div class="auth-visual-side">
+            <div class="visual-content">
+                <div class="visual-logo">
+                    <span class="logo-g">G</span>oldo<span class="logo-accent">Learning</span><span class="logo-237">237</span>
+                </div>
+                <h2>Commence ton<br>parcours aujourd'hui.</h2>
+                <p>Choisis ton rôle et accède à une plateforme complète pensée pour l'excellence académique au Cameroun.</p>
+
+                <!-- Cards rôles -->
+                <div class="role-cards">
+                    <div class="role-card">
+                        <span class="role-icon">👨‍🎓</span>
+                        <div>
+                            <strong>Étudiant</strong>
+                            <span>Suis des cours, passe des évaluations et obtiens tes certificats.</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon">👨‍🏫</span>
+                        <div>
+                            <strong>Enseignant</strong>
+                            <span>Crée tes cours PDF ou vidéo et évalue tes apprenants.</span>
+                        </div>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon">🏢</span>
+                        <div>
+                            <strong>Promoteur</strong>
+                            <span>Organise les modules et gère les certifications.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stat card -->
+                <div class="visual-stat-card">
+                    <div class="vsc-row">
+                        <span class="vsc-num">120+</span>
+                        <span class="vsc-label">cours disponibles dès aujourd'hui</span>
+                    </div>
+                    <div class="vsc-progress">
+                        <div class="vsc-bar" style="width:92%"></div>
+                    </div>
+                    <span class="vsc-sub">92% des inscrits complètent leur premier cours</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../assets/js/auth.js"></script>
+</body>
+</html>

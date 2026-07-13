@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Enseignant — GoldoLearning237</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+        <span class="logo-g">G</span>oldo<span class="logo-accent">Learning</span><span class="logo-237">237</span>
+    </div>
+    <div class="sidebar-role-badge">👨‍🏫 Enseignant</div>
+    <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-view="dashboard">
+            <span class="nav-icon">📊</span><span class="nav-label">Tableau de bord</span>
+        </a>
+        <a href="#" class="nav-item" data-view="mes-cours">
+            <span class="nav-icon">📚</span><span class="nav-label">Mes cours</span>
+        </a>
+        <a href="#" class="nav-item" data-view="creer-cours">
+            <span class="nav-icon">➕</span><span class="nav-label">Créer un cours</span>
+        </a>
+        <a href="#" class="nav-item" data-view="evaluations">
+            <span class="nav-icon">📝</span><span class="nav-label">Évaluations</span>
+        </a>
+    </nav>
+    <div class="sidebar-bottom">
+        <a href="#" class="nav-item nav-logout" id="logoutBtn">
+            <span class="nav-icon">🚪</span><span class="nav-label">Déconnexion</span>
+        </a>
+    </div>
+</aside>
+
+<div class="main-wrapper">
+
+    <header class="dash-header">
+        <button class="burger-dash" id="burgerDash">☰</button>
+        <div class="header-title" id="headerTitle">Tableau de bord</div>
+        <div class="header-user">
+            <span class="user-name" id="userName">...</span>
+            <div class="user-avatar" id="userAvatar">?</div>
+        </div>
+    </header>
+
+    <!-- VUE 1 : TABLEAU DE BORD -->
+    <section class="dash-view active" id="view-dashboard">
+        <div class="view-inner">
+            <div class="view-heading">
+                <h1>Bonjour, <span id="greetName">Enseignant</span> 👋</h1>
+                <p>Voici un aperçu de votre activité.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="sc-icon" style="background:#ede9fe">📚</div>
+                    <div class="sc-body">
+                        <span class="sc-num" id="statCours">0</span>
+                        <span class="sc-label">Cours créés</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="sc-icon" style="background:#dcfce7">👨‍🎓</div>
+                    <div class="sc-body">
+                        <span class="sc-num" id="statEtudiants">0</span>
+                        <span class="sc-label">Étudiants inscrits</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="sc-icon" style="background:#fef9c3">📖</div>
+                    <div class="sc-body">
+                        <span class="sc-num" id="statLecons">0</span>
+                        <span class="sc-label">Leçons publiées</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="sc-icon" style="background:#fee2e2">📝</div>
+                    <div class="sc-body">
+                        <span class="sc-num" id="statEvals">0</span>
+                        <span class="sc-label">Évaluations créées</span>
+                    </div>
+                </div>
+            </div>
+            <div class="section-block">
+                <div class="block-head">
+                    <h2>Mes cours récents</h2>
+                    <a href="#" class="link-action" data-view="mes-cours">Voir tout →</a>
+                </div>
+                <div id="coursRecentsList">
+                    <div class="empty-state">
+                        <span>📭</span>
+                        <p>Aucun cours. <a href="#" data-view="creer-cours">Créez votre premier cours</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VUE 2 : MES COURS -->
+    <section class="dash-view" id="view-mes-cours">
+        <div class="view-inner">
+            <div class="view-heading">
+                <h1>Mes cours</h1>
+                <p>Gérez vos cours, leçons et évaluations.</p>
+            </div>
+            <div class="block-head" style="margin-bottom:1.5rem">
+                <span></span>
+                <a href="#" class="btn-primary-sm" data-view="creer-cours">+ Nouveau cours</a>
+            </div>
+            <div id="coursListContainer">
+                <div class="empty-state">
+                    <span>📭</span>
+                    <p>Aucun cours créé. <a href="#" data-view="creer-cours">Créez votre premier cours</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VUE 3 : CRÉER UN COURS -->
+    <section class="dash-view" id="view-creer-cours">
+        <div class="view-inner">
+            <div class="view-heading">
+                <h1>Créer un cours</h1>
+                <p>Remplissez les informations. Vous ajouterez les leçons ensuite.</p>
+            </div>
+            <div class="form-card">
+                <div class="auth-message" id="coursMessage"></div>
+                <form id="coursForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="coursTitre">Titre du cours <span class="req">*</span></label>
+                            <input type="text" id="coursTitre" placeholder="Ex : Introduction à Python">
+                            <span class="field-error" id="coursTitreError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="coursModule">Module associé</label>
+                            <select id="coursModule">
+                                <option value="">-- Aucun module --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="coursDescription">Description <span class="req">*</span></label>
+                        <textarea id="coursDescription" rows="4" placeholder="Objectifs et contenu du cours..."></textarea>
+                        <span class="field-error" id="coursDescError"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit-sm" id="coursSubmitBtn">
+                            <span id="coursBtnText">Créer le cours</span>
+                            <span class="btn-loader hidden" id="coursBtnLoader">⏳</span>
+                        </button>
+                        <button type="button" class="btn-cancel" data-view="mes-cours">Annuler</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Leçons (visible après création) -->
+            <div id="leconsSection" class="hidden" style="margin-top:2rem">
+                <div class="section-block">
+                    <div class="block-head">
+                        <h2>Leçons : <span id="coursCreeTitre"></span></h2>
+                        <button class="btn-primary-sm" id="addLeconBtn">+ Ajouter une leçon</button>
+                    </div>
+                    <div id="leconsList">
+                        <div class="empty-state">
+                            <span>📖</span>
+                            <p>Aucune leçon. Ajoutez votre première leçon ci-dessus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VUE 4 : ÉVALUATIONS -->
+    <section class="dash-view" id="view-evaluations">
+        <div class="view-inner">
+            <div class="view-heading">
+                <h1>Évaluations</h1>
+                <p>Gérez les évaluations associées à vos leçons.</p>
+            </div>
+
+            <div id="evaluationsListContainer">
+                <!-- rempli dynamiquement par JS -->
+                <div class="empty-state">
+                    <span>📝</span>
+                    <p>Chargement...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL CRÉATION / ÉDITION QCM -->
+    <div class="modal-overlay hidden" id="modalQcm">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3 id="qcmModalTitre">Créer un QCM</h3>
+                <button class="modal-close" id="closeModalQcm">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="qcmForm">
+                    <input type="hidden" id="qcmLeconId">
+                    <input type="hidden" id="qcmEvaluationId">
+
+                    <div class="form-group">
+                        <label for="qcmTitreInput">Titre du QCM *</label>
+                        <input type="text" id="qcmTitreInput" placeholder="Ex : Quiz - Introduction au web">
+                        <span class="field-error" id="qcmTitreError"></span>
+                    </div>
+
+                    <div id="qcmQuestionsContainer">
+                        <!-- questions générées dynamiquement -->
+                    </div>
+
+                    <button type="button" class="btn-secondary-sm" id="ajouterQuestionBtn">+ Ajouter une question</button>
+
+                    <p class="auth-message" id="qcmMessage"></p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" id="cancelQcm">Annuler</button>
+                <button type="button" class="btn-submit" id="saveQcmBtn">
+                    <span id="qcmSaveBtnText">Enregistrer</span>
+                    <span class="btn-loader hidden" id="qcmSaveBtnLoader"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template pour une question (utilisé par JS, ne pas afficher directement) -->
+    <template id="templateQuestion">
+        <div class="qcm-question-block" data-question-index="">
+            <div class="qcm-question-header">
+                <span class="qcm-question-num"></span>
+                <button type="button" class="btn-icon danger btn-suppr-question">Supprimer</button>
+            </div>
+            <div class="form-group">
+                <input type="text" class="qcm-enonce-input" placeholder="Énoncé de la question">
+            </div>
+            <div class="qcm-options-list">
+                <!-- options générées dynamiquement -->
+            </div>
+            <button type="button" class="btn-lien btn-ajouter-option">+ Ajouter une option</button>
+        </div>
+    </template>
+
+    <!-- Template pour une option (utilisé par JS) -->
+    <template id="templateOption">
+        <div class="qcm-option-row">
+            <input type="radio" class="qcm-option-correcte" name="">
+            <input type="text" class="qcm-option-texte" placeholder="Texte de l'option">
+            <button type="button" class="btn-icon danger btn-suppr-option">&times;</button>
+        </div>
+    </template>
+
+</div>
+
+<!-- MODAL : AJOUTER UNE LEÇON -->
+<div class="modal-overlay hidden" id="modalLecon">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3>Ajouter une leçon</h3>
+            <button class="modal-close" id="closeModalLecon">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="auth-message" id="leconMessage"></div>
+            <form id="leconForm">
+                <input type="hidden" id="leconCoursId">
+                <div class="form-group">
+                    <label for="leconTitre">Titre <span class="req">*</span></label>
+                    <input type="text" id="leconTitre" placeholder="Ex : Les variables en Python">
+                    <span class="field-error" id="leconTitreError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="leconType">Type de contenu <span class="req">*</span></label>
+                    <select id="leconType">
+                        <option value="">-- Choisir --</option>
+                        <option value="pdf">📄 Document PDF</option>
+                        <option value="video">🎬 Vidéo (URL)</option>
+                    </select>
+                    <span class="field-error" id="leconTypeError"></span>
+                </div>
+                <div class="form-group hidden" id="pdfGroup">
+                    <label for="leconPdf">Fichier PDF</label>
+                    <input type="file" id="leconPdf" accept=".pdf">
+                </div>
+                <div class="form-group hidden" id="videoGroup">
+                    <label for="leconVideo">URL Vidéo</label>
+                    <input type="url" id="leconVideo" placeholder="https://youtube.com/watch?v=...">
+                </div>
+                <div class="form-group">
+                    <label for="leconOrdre">Ordre</label>
+                    <input type="number" id="leconOrdre" value="1" min="1">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit-sm">
+                        <span id="leconBtnText">Ajouter</span>
+                        <span class="btn-loader hidden" id="leconBtnLoader">⏳</span>
+                    </button>
+                    <button type="button" class="btn-cancel" id="cancelLecon">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/enseignant.js"></script>
+<div id="modalQCM" class="modal" style="display: none;">
+  <div class="modal-content modal-lg">
+    <div class="modal-header">
+      <h3 id="modalQCMTitre">Créer un nouveau QCM</h3>
+      <span class="close-modal" onclick="fermerModalQCM()">&times;</span>
+    </div>
+    <form id="formQCM" onsubmit="sauvegarderQCM(event)">
+      <input type="hidden" id="qcm_id" name="qcm_id" value="">
+      <input type="hidden" id="qcm_cours_id" name="cours_id" value="">
+
+      <div class="form-group">
+        <label for="qcm_titre">Titre du QCM *</label>
+        <input type="text" id="qcm_titre" class="form-control" required placeholder="Ex: Évaluation Chapitre 1">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="qcm_duree">Durée (en minutes)</label>
+          <input type="number" id="qcm_duree" class="form-control" value="15" min="1">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="qcm_note_passage">Note de passage (%)</label>
+          <input type="number" id="qcm_note_passage" class="form-control" value="50" min="0" max="100">
+        </div>
+      </div>
+
+      <hr>
+      <h4>Questions</h4>
+      <div id="containerQuestions">
+        </div>
+
+      <button type="button" class="btn btn-secondary btn-sm" onclick="ajouterQuestionHTML()">+ Ajouter une question</button>
+
+      <div class="modal-footer" style="margin-top: 20px;">
+        <button type="button" class="btn btn-light" onclick="fermerModalQCM()">Annuler</button>
+        <button type="submit" class="btn btn-primary">Enregistrer le QCM</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

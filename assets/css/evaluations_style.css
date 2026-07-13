@@ -1,0 +1,121 @@
+/* ===== ÉVALUATIONS - Liste des leçons + statut QCM ===== */
+
+.eval-cours-groupe {
+    margin-bottom: 28px;
+}
+
+.eval-cours-titre {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.eval-lecon-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+}
+
+.eval-lecon-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.eval-lecon-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.badge-qcm-oui { background: #e6f9ee; color: #1a9e56; }
+.badge-qcm-non { background: #f0f0f5; color: #888; }
+
+/* ===== MODAL QCM ===== */
+
+.modal-lg { max-width: 640px; width: 90%; max-height: 85vh; overflow-y: auto; }
+
+.qcm-question-block {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background: #faf9fc;
+}
+
+.qcm-question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.qcm-question-num {
+    font-weight: 700;
+    color: #7c3aed;
+    font-size: 14px;
+}
+
+.qcm-enonce-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e0e0e6;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.qcm-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.qcm-option-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qcm-option-row input[type="text"] {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #e0e0e6;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.qcm-option-row input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #7c3aed;
+    cursor: pointer;
+}
+
+.btn-lien {
+    background: none;
+    border: none;
+    color: #7c3aed;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 0;
+}
+.btn-lien:hover { text-decoration: underline; }
+
+.field-error {
+    color: #d64545;
+    font-size: 12px;
+    display: block;
+    margin-top: 4px;
+}
+
+.hidden { display: none !important; }

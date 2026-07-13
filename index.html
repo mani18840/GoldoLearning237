@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldoLearning237 — Apprends. Progresse. Certifie-toi.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- ===== BANDEAU PROMO ===== -->
+    <div class="promo-bar" id="promoBanner">
+        🎓 Nouvelle session disponible ! Inscris-toi maintenant et accède à tous les modules gratuitement.
+        <button class="promo-close" onclick="document.getElementById('promoBanner').style.display='none'">✕</button>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-g">G</span>oldo<span class="logo-accent">Learning</span><span class="logo-237">237</span>
+            </a>
+
+            <!-- Burger menu (mobile) -->
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#cours">Trouver un cours</a></li>
+                <li><a href="#modules">Modules</a></li>
+                <li><a href="#comment">Comment ça marche</a></li>
+                <li><a href="#">Enseigner</a></li>
+            </ul>
+
+            <div class="nav-search">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Que souhaitez-vous apprendre ?">
+            </div>
+
+            <div class="nav-auth">
+                <a href="auth/login.html" class="btn-nav-login">Se connecter</a>
+                <a href="auth/register.html" class="btn-nav-register">S'inscrire</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO DIAPORAMA ===== -->
+    <section class="hero" id="hero">
+
+        <!-- SLIDE 0 : Texte d'accueil (pas d'image, fond dégradé violet) -->
+        <div class="slide slide-intro active">
+            <div class="slide-content">
+                <span class="hero-eyebrow">🇨🇲 La plateforme LMS made in Cameroun</span>
+                <h1 class="hero-title">
+                    Apprends. <span class="hero-accent">Progresse.</span><br>Certifie-toi.
+                </h1>
+                <p class="hero-sub">
+                    Des cours en PDF et vidéo, des évaluations par leçon et des certificats reconnus.<br>
+                    Pensé pour les apprenants de l'Université de Yaoundé I et au-delà.
+                </p>
+                <div class="hero-cta">
+                    <a href="auth/register.html" class="btn-hero-primary">Commencer gratuitement</a>
+                    <a href="#cours" class="btn-hero-secondary">Voir les cours</a>
+                </div>
+                <div class="hero-badges">
+                    <span class="hbadge">📄 Cours PDF</span>
+                    <span class="hbadge">🎬 Cours Vidéo</span>
+                    <span class="hbadge">📊 Évaluations</span>
+                    <span class="hbadge">🏆 Certificats</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 1 : Amphi UYI -->
+        <div class="slide" style="background-image:url('assets/images/slide1.png')">
+            <div class="slide-caption">🎓 Les amphithéâtres de l'Université de Yaoundé I</div>
+        </div>
+
+        <!-- SLIDE 2 : Portail UYI -->
+        <div class="slide" style="background-image:url('assets/images/slide2.png')">
+            <div class="slide-caption">🏛️ Université de Yaoundé I — Yaoundé, Cameroun</div>
+        </div>
+
+        <!-- SLIDE 3 : Logo UYI -->
+        <div class="slide" style="background-image:url('assets/images/slide3.png')">
+            <div class="slide-caption">📚 Sapientia & Cognitio — University of Yaoundé I</div>
+        </div>
+
+        <!-- SLIDE 4 : Groupe étudiants -->
+        <div class="slide" style="background-image:url('assets/images/slide4.png')">
+            <div class="slide-caption">👥 Apprends avec une communauté d'étudiants motivés</div>
+        </div>
+
+        <!-- SLIDE 5 : Développeur -->
+        <div class="slide" style="background-image:url('assets/images/slide5.png')">
+            <div class="slide-caption">💻 Des cours techniques dispensés par des experts</div>
+        </div>
+
+        <!-- Flèches -->
+        <button class="slide-arrow arrow-prev" id="prevSlide">&#8249;</button>
+        <button class="slide-arrow arrow-next" id="nextSlide">&#8250;</button>
+
+        <!-- Dots (6 slides : 1 intro + 5 images) -->
+        <div class="slide-dots" id="slideDots">
+            <span class="sdot active" data-index="0"></span>
+            <span class="sdot" data-index="1"></span>
+            <span class="sdot" data-index="2"></span>
+            <span class="sdot" data-index="3"></span>
+            <span class="sdot" data-index="4"></span>
+            <span class="sdot" data-index="5"></span>
+        </div>
+
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat"><strong>120+</strong><span>Cours disponibles</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><strong>3 000+</strong><span>Apprenants inscrits</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><strong>45+</strong><span>Enseignants actifs</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><strong>98%</strong><span>Taux de satisfaction</span></div>
+        </div>
+    </section>
+
+    <!-- ===== CATÉGORIES ===== -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Parcourir les <span class="txt-violet">catégories</span></h2>
+            <div class="categories-grid">
+                <div class="cat-card"><span class="cat-icon">💻</span><span class="cat-label">Informatique</span></div>
+                <div class="cat-card"><span class="cat-icon">📐</span><span class="cat-label">Mathématiques</span></div>
+                <div class="cat-card"><span class="cat-icon">🔐</span><span class="cat-label">Cybersécurité</span></div>
+                <div class="cat-card"><span class="cat-icon">📊</span><span class="cat-label">Statistiques</span></div>
+                <div class="cat-card"><span class="cat-icon">🌐</span><span class="cat-label">Réseaux</span></div>
+                <div class="cat-card"><span class="cat-icon">🗄️</span><span class="cat-label">Bases de données</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COURS POPULAIRES ===== -->
+    <section class="cours-section" id="cours">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">Cours les plus <span class="txt-violet">populaires</span></h2>
+                <a href="#" class="voir-tout">Voir tout →</a>
+            </div>
+            <div class="cours-grid">
+                <div class="cours-card">
+                    <div class="card-thumb"><div class="thumb-emoji">💻</div><span class="card-type pdf">PDF</span></div>
+                    <div class="card-body">
+                        <span class="card-categorie">Développement Web</span>
+                        <h3>HTML, CSS & JavaScript de A à Z</h3>
+                        <p class="card-auteur">Par Prof. Azanzi Jiomekong</p>
+                        <div class="card-meta"><span class="card-lecons">📚 12 leçons</span><span class="card-niveau">Débutant</span></div>
+                        <div class="card-progress">
+                            <div class="progress-bar"><div class="bar-fill" style="width:0%"></div></div>
+                            <span class="progress-txt">0% complété</span>
+                        </div>
+                        <a href="auth/register.html" class="btn-inscrire">S'inscrire au cours</a>
+                    </div>
+                </div>
+                <div class="cours-card">
+                    <div class="card-thumb"><div class="thumb-emoji">📐</div><span class="card-type video">Vidéo</span></div>
+                    <div class="card-body">
+                        <span class="card-categorie">Mathématiques</span>
+                        <h3>Algèbre Linéaire & Matrices</h3>
+                        <p class="card-auteur">Par Prof. Nzekon Nzeko'o</p>
+                        <div class="card-meta"><span class="card-lecons">📚 8 leçons</span><span class="card-niveau">Intermédiaire</span></div>
+                        <div class="card-progress">
+                            <div class="progress-bar"><div class="bar-fill" style="width:0%"></div></div>
+                            <span class="progress-txt">0% complété</span>
+                        </div>
+                        <a href="auth/register.html" class="btn-inscrire">S'inscrire au cours</a>
+                    </div>
+                </div>
+                <div class="cours-card">
+                    <div class="card-thumb"><div class="thumb-emoji">🔐</div><span class="card-type pdf">PDF</span></div>
+                    <div class="card-body">
+                        <span class="card-categorie">Sécurité Informatique</span>
+                        <h3>Cybersécurité & Protocoles Réseau</h3>
+                        <p class="card-auteur">Par Dr. Ferrag M.A.</p>
+                        <div class="card-meta"><span class="card-lecons">📚 10 leçons</span><span class="card-niveau">Avancé</span></div>
+                        <div class="card-progress">
+                            <div class="progress-bar"><div class="bar-fill" style="width:0%"></div></div>
+                            <span class="progress-txt">0% complété</span>
+                        </div>
+                        <a href="auth/register.html" class="btn-inscrire">S'inscrire au cours</a>
+                    </div>
+                </div>
+                <div class="cours-card">
+                    <div class="card-thumb"><div class="thumb-emoji">📊</div><span class="card-type video">Vidéo</span></div>
+                    <div class="card-body">
+                        <span class="card-categorie">Statistiques</span>
+                        <h3>Analyse de Données & Régression</h3>
+                        <p class="card-auteur">Par Prof. Nzekon</p>
+                        <div class="card-meta"><span class="card-lecons">📚 9 leçons</span><span class="card-niveau">Intermédiaire</span></div>
+                        <div class="card-progress">
+                            <div class="progress-bar"><div class="bar-fill" style="width:0%"></div></div>
+                            <span class="progress-txt">0% complété</span>
+                        </div>
+                        <a href="auth/register.html" class="btn-inscrire">S'inscrire au cours</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMMENT ÇA MARCHE ===== -->
+    <section class="how-section" id="comment">
+        <div class="container">
+            <h2 class="section-title" style="text-align:center">Comment ça <span class="txt-violet">marche ?</span></h2>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-num">01</div>
+                    <div class="how-icon">📝</div>
+                    <h3>Crée ton compte</h3>
+                    <p>Inscris-toi gratuitement en tant qu'étudiant, enseignant ou promoteur de module.</p>
+                </div>
+                <div class="how-arrow">→</div>
+                <div class="how-card">
+                    <div class="how-num">02</div>
+                    <div class="how-icon">📖</div>
+                    <h3>Suis tes leçons</h3>
+                    <p>Accède aux cours en PDF ou vidéo, leçon par leçon, et passe les évaluations associées.</p>
+                </div>
+                <div class="how-arrow">→</div>
+                <div class="how-card">
+                    <div class="how-num">03</div>
+                    <div class="how-icon">🏆</div>
+                    <h3>Obtiens ton certificat</h3>
+                    <p>Valide ton module avec une bonne progression et reçois ton certificat officiel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ENSEIGNANT ===== -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <div class="cta-text">
+                <h2>Vous êtes enseignant ?</h2>
+                <p>Partagez votre expertise. Créez vos cours, ajoutez vos leçons PDF ou vidéo et évaluez vos étudiants directement sur GoldoLearning237.</p>
+                <a href="auth/register.html?role=enseignant" class="btn-cta-white">Commencer à enseigner</a>
+            </div>
+            <div class="cta-visual">🎓</div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <div class="footer-logo"><span class="logo-g">G</span>oldo<span class="logo-accent">Learning</span><span class="logo-237">237</span></div>
+                <p class="footer-desc">La plateforme LMS pensée pour les apprenants camerounais et africains. 🇨🇲</p>
+            </div>
+            <div class="footer-col">
+                <h4>Plateforme</h4>
+                <ul>
+                    <li><a href="#">Trouver un cours</a></li>
+                    <li><a href="#">Modules disponibles</a></li>
+                    <li><a href="#">Enseigner sur GoldoLearning</a></li>
+                    <li><a href="#">Certificats</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Compte</h4>
+                <ul>
+                    <li><a href="auth/login.html">Se connecter</a></li>
+                    <li><a href="auth/register.html">S'inscrire</a></li>
+                    <li><a href="#">Mot de passe oublié</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>À propos</h4>
+                <ul>
+                    <li><a href="#">À propos de nous</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                    <li><a href="#">Confidentialité</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 GoldoLearning237. Tous droits réservés. Made with ❤️ au Cameroun.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

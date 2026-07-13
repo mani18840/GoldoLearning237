@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion — GoldoLearning237</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+
+    <!-- NAVBAR MINIMALE -->
+    <nav class="auth-nav">
+        <a href="../index.html" class="nav-logo">
+            <span class="logo-g">G</span>oldo<span class="logo-accent">Learning</span><span class="logo-237">237</span>
+        </a>
+        <a href="register.html" class="nav-switch">
+            Pas encore de compte ? <span>S'inscrire</span>
+        </a>
+    </nav>
+
+    <!-- LAYOUT : formulaire gauche + visuel droit -->
+    <main class="auth-layout">
+
+        <!-- FORMULAIRE -->
+        <div class="auth-form-side">
+            <div class="auth-box">
+
+                <div class="auth-header">
+                    <h1>Bon retour ! 👋</h1>
+                    <p>Connectez-vous pour reprendre votre apprentissage là où vous l'avez laissé.</p>
+                </div>
+
+                <!-- Message d'erreur / succès (affiché par JS) -->
+                <div class="auth-message" id="authMessage"></div>
+
+                <form id="loginForm" novalidate>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Adresse email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="votre@email.com"
+                            autocomplete="email"
+                            required
+                        >
+                        <span class="field-error" id="emailError"></span>
+                    </div>
+
+                    <!-- Mot de passe -->
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <div class="input-password">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Votre mot de passe"
+                                autocomplete="current-password"
+                                required
+                            >
+                            <button type="button" class="toggle-pwd" id="togglePwd" title="Afficher/Masquer">
+                                👁️
+                            </button>
+                        </div>
+                        <span class="field-error" id="passwordError"></span>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe"> Se souvenir de moi
+                        </label>
+                        <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+                    </div>
+
+                    <!-- Bouton submit -->
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span id="btnText">Se connecter</span>
+                        <span id="btnLoader" class="btn-loader hidden">⏳</span>
+                    </button>
+
+                </form>
+
+                <!-- Divider -->
+                <div class="auth-divider"><span>ou</span></div>
+
+                <!-- Lien inscription -->
+                <p class="auth-switch-link">
+                    Pas encore inscrit ?
+                    <a href="register.html">Créer un compte gratuitement</a>
+                </p>
+
+            </div>
+        </div>
+
+        <!-- VISUEL DROIT -->
+        <div class="auth-visual-side">
+            <div class="visual-content">
+                <div class="visual-logo">
+                    <span class="logo-g">G</span>oldo<span class="logo-accent">Learning</span><span class="logo-237">237</span>
+                </div>
+                <h2>Reprends là où<br>tu t'es arrêté.</h2>
+                <p>Accède à tes cours, tes évaluations et tes certificats en un clic.</p>
+
+                <div class="visual-features">
+                    <div class="vf-item">
+                        <span class="vf-icon">📄</span>
+                        <div>
+                            <strong>Cours PDF & Vidéo</strong>
+                            <span>Leçons disponibles 24h/24</span>
+                        </div>
+                    </div>
+                    <div class="vf-item">
+                        <span class="vf-icon">📊</span>
+                        <div>
+                            <strong>Évaluations par leçon</strong>
+                            <span>Mesure ta progression en temps réel</span>
+                        </div>
+                    </div>
+                    <div class="vf-item">
+                        <span class="vf-icon">🏆</span>
+                        <div>
+                            <strong>Certificats officiels</strong>
+                            <span>Valide tes modules et obtiens tes diplômes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stat card décorative -->
+                <div class="visual-stat-card">
+                    <div class="vsc-row">
+                        <span class="vsc-num">3 000+</span>
+                        <span class="vsc-label">apprenants actifs</span>
+                    </div>
+                    <div class="vsc-progress">
+                        <div class="vsc-bar" style="width:78%"></div>
+                    </div>
+                    <span class="vsc-sub">78% ont obtenu leur certificat</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../assets/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Dépendances Composer (FPDF etc.) — trop volumineux, se réinstalle avec composer install
+/vendor/
+
+# Fichiers uploadés par les utilisateurs (PDF de leçons, certificats générés)
+/assets/uploads/
+/assets/certificats/
+
+# Config avec identifiants de base de données sensibles
+# ⚠️ Décommente la ligne suivante SEULEMENT si config.php contient un vrai mot de passe.
+# Si c'est juste "root"/"" en local XAMPP, tu peux le laisser versionné.
+# api/config.php
+
+# Fichiers système Windows
+Thumbs.db
+desktop.ini
+
+# Fichiers temporaires d'éditeur
+.vscode/
+*.swp
